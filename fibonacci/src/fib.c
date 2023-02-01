@@ -22,7 +22,7 @@
 
 /* global definitions and function definitions (includes) */
 #include <stdio.h>
-#include <math.h>       /* needed for sqrt(), pow() */
+#include <math.h>       /* needed for sqrt(), pow(), round() */
 
 #define    MAX_FIBN1	24    /* avoid stack overflow */
 #define    MAX_FIBN2    47    /* avoid arithmetic overflow */
