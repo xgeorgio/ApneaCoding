@@ -1,0 +1,89 @@
+;
+; Place n queens on a chessboard so that
+; none of them is threating any other.
+; 
+; Usage:    (queens <n>)
+;   where <n> is the size of the board
+;
+
+; Do queens threaten each other ?
+(defun threat (i j a b)
+  (or (= a b)    ; row check
+      (= j b)    ; column check
+      (= (- i j) (- a b))   ; diagonal
+      (= (+ i j) (+ a b ))  ; diagonal
+  ))
+
+; Is position (n,m) safe for queen ?
+(defun conflict (n m board)
+  (cond ((null board) nil)
+        ((threat n m (caar board) (cadar board)) t)
+        (t (conflict n m (cdr board)))
+  ))
+
+; Place queens on a board of <size>
+(defun queens (size)
+  (prog (n m board soln)
+        (setq soln 0)         ; solution number
+        (setq board ())
+        (setq n 1)            ; start with row 1
+   loop-n
+        (setq m 1)            ; start with column 1
+   loop-m
+        (cond ((conflict n m board) (go un-do-m)))   ; check for conflict
+        (setq board (cons (list n m) board))         ; add queen to board
+        (cond ((> (setq n (1+ n)) size)              ; placed N queens ?
+              (print-board (reverse board) (setq soln (1+ soln)) ))) ; print it
+        (go loop-n)
+   un-do-n
+        (cond ((null board) (return 'Done)))    ; finished ?
+        (setq m (cadar board))                  ; no, undo last placement
+        (setq n (caar board))
+        (setq board (cdr board))
+   un-do-m
+        (cond ((> (setq m (1+ m)) size)         ; try next column
+              (go un-do-n))
+              (t (go loop-m))
+        )))
+
+; Print board
+(defun print-board (board soln)
+  (prog (size)
+        (setq size (length board))
+        (princ "\f\n\t\tSolution: ")
+        (princ soln)
+        (princ "\n\n\t")
+        (print-header size 1)
+        (princ "\n")
+        (print-board-aux board size 1)
+        (princ "\n")
+  ))
+
+; Print columns on top
+(defun print-header (size n)
+  (cond ((> n size) (princ "\n"))
+        (t (prog () (patom n)
+                    (princ" ")
+                    (print-header size (1+ n)) ))
+  ))
+
+(defun print-board-aux (board size row)
+  (princ "\n")
+  (cond ((null board) ())
+        (t (prog ()
+             (princ row)      ; print the row label
+             (princ "\t")
+             (print-board-row (cadar board) size 1)   ; print the row
+             (print-board-aux (cdr board) size (1+ row)))  ; next row
+  )))
+
+(defun print-board-row (column size n)
+  (cond ((> n size)())
+        (t (prog ()
+             (cond ((equal column n) (princ "Q"))
+                   (t (princ ".")))
+             (princ " ")
+             (print-board-row column size (1+ n)))
+  )))
+
+
