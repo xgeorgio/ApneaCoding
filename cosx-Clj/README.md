@@ -1,5 +1,5 @@
 Title:<br/>
-<b>Estimation of cos(x) via dynamic series</b>
+<b>Estimation of cos(x) via dynamic series in Clojure</b>
 
 Description:<br/>
 <p>This is a very simple code snippet demonstrating the basic syntax of Clojure, which is considered as an "improved LISP" but with very important additional advantages, like being JVM-based and very closely tied to Java idioms.
