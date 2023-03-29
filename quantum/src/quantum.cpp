@@ -15,7 +15,7 @@ int main( void )
 	unsigned long count=0;
 
     cout << "Quantum numbers calculator\n\n";
-    cout << "Give primary quantum nuumber (n=1,2,...): ";
+    cout << "Give primary quantum number (n=1,2,...): ";
     cin >> nn;
     if (nn<1)
     {
