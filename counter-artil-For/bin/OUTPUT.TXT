@@ -1,0 +1,21 @@
+
+TRAJECTORY SOURCE FINDER
+Example:  f(x)=-x(x-5) => df/dx=-2x+5
+Input data (X,Y,DY):
+POINT  1: (  .00 ,  .00 , 5.00)
+POINT  2: ( 1.00 , 4.00 , 3.00)
+POINT  3: ( 2.00 , 6.00 , 1.00)
+POINT  4: ( 3.00 , 6.00 ,-1.00)
+POINT  5: ( 4.00 , 4.00 ,-3.00)
+TEST AT POINT:          1.50000000000000
+INTERPOLATED:          5.25000000000000
+DERIVATIVE:          1.99985492229460
+FINDING SOURCE FROM DATA POINTS:
+            2            3
+ITER    1: X =   1.000000
+ITER    2: X =   -.333377
+ITER    3: X =   -.019615
+ITER    4: X =   -.000076
+FINISHED:  X =  -1.1630674000269E-009
+ROOT: X =  -1.1630674201513E-009
+Stop - Program terminated.
