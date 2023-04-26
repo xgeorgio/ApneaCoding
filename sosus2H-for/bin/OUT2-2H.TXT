@@ -1,0 +1,23 @@
+SOSUS VER.2: SPHERICAL GEODESICS
+ 
+--- DETECTION STATIONS:
+LAT= 44.351788 , LON=-63.579985 => DELTA=   323.240
+LAT= 32.452274 , LON=-64.963795 => DELTA=   562.148
+LAT= 36.760208 , LON=-75.780482 => DELTA=   724.390
+ 
+--- ITER=           50
+... JACOBIAN LINEAR 2x2 SYSTEM:
+    203.247    *LAT? +    9.46045    *LON? =   -19.3642    
+    126.038    *LAT? +    122.986    *LON? =   -29.7960    
+    SOLVER(0) STEP: ( -.617435E-02 , -.106315E-01) : PREC=  .106315E-01
+   (LAT,LON) =     38.6953     ,    22.3574    
+--- ITER=          100
+... JACOBIAN LINEAR 2x2 SYSTEM:
+    202.332    *LAT? +    8.23975    *LON? =   -.513960    
+    125.427    *LAT? +    123.901    *LON? =   -.791284    
+    SOLVER(0) STEP: ( -.166470E-03 , -.278528E-03) : PREC=  .278528E-03
+   (LAT,LON) =     38.6149     ,    22.2212    
+---------
+TARGET SOLUTION (ITER= 147):
+    LAT =     38.6128     , LON =    -67.7823    
+Stop - Program terminated.
