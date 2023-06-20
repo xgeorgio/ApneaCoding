@@ -6,3 +6,4 @@
 <p>Προαπαιτούμενα: Στοιχειώδεις γνώσεις Μαθηματικών</p>
 <p>Keywords: Machine Learning, Data Analytics, AI, Artificial Intelligence, lecture</p>
 <p>DOI: https://doi.org/10.5281/zenodo.8056227</p>
+<p>Video: https://youtu.be/mlU4SvyfRqA</p>

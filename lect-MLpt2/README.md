@@ -6,3 +6,4 @@
 <p>Προαπαιτούμενα: Βασικές γνώσεις Μαθηματικών και Στατιστικής</p>
 <p>Keywords: Machine Learning, Data Analytics, Medical Imaging, Mammography, CAD, Diagnostics, AI, Artificial Intelligence, lecture</p>
 <p>DOI: https://doi.org/10.5281/zenodo.8056250</p>
+<p>Video: https://youtu.be/d2HnlWyQse4</p>
