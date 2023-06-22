@@ -5,5 +5,5 @@
 <p>Επίπεδο γνώσεων (από): Οποιοδήποτε</p>
 <p>Προαπαιτούμενα: Κανένα</p>
 <p>Keywords: Search and Rescue, ICT, Artificial Intelligence, AI, lecture</p>
-<p>DOI: ...</p>
-<p>Video: ...</p>
+<p>DOI: https://doi.org/10.5281/zenodo.8061456</p>
+<p>Video: https://youtu.be/PjxGd4ie79U</p>
