@@ -1,0 +1,12 @@
+Title:<br/>
+<b>Victor-Sierra SAR patterns in Python</b>
+
+Description:<br/>
+<p>This small demo illustrates how the maritime Search and Rescue (SAR) operations are carefully planned for maximizing the probability of target detection. The Victor-Sierra (VS) method is a sector search pattern that is employed when the last known position (LKP) has been marked reliably and drift has been taken into account.</p>
+<p>The VS method is centered at the LKP and the 360-degree range is sectorized into six triangles with all sides equal. This is achieved by having a delta angle of 60 degrees and moving across waypoints at constant speed, for a specific delta time for each leg. The distance between the center (beginning) and each corner is set between 1-3 n.m. depending on visibility and drift strength, while the movement speed is kept low at 5-10 kts in order to maximize search efficiency. The turns are all towards the same direction, clockwise or counter-clockwise, thus traversing the center every three legs and finally covering the entire 360 degrees in a total of nine legs. Common practice dictates that the length of each leg is much shorter than the current visibility, so that there is significant area overlap. A second run can be executed with a 30 degree shift from the previously used starting direction, which is usually aligned along the perceived drift. Since the speed is constant, the estimation of the total time needed to complete the entire VS run is straightforward.</p>
+<p>For practical reasons, the VS pattern is calculated in absolute planar (X-Y) distances for the waypoints, which can be placed directly on a Cartesian ("flat") map. These waypoints are also valid for linear conversions to real GPS coordinate system (spherical), as long as the search area remains small and not very far from the equitorial. For example, in the Mediterannean Sea a square of 1 degree Lat/Lon corresponds to about 50-60 n.m. per side, thus VS with legs of 3 n.m. correspond to 0.05-0.06 deg in local Lat/Lon, which is usually acceptable regarding the assumption of linear transits in both axes (error in drift vector estimation is larger).</p>
+Thumbnail images credits:
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Water_surface_searches" target=_blank">https://en.wikipedia.org/wiki/Water_surface_searches</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Search_and_rescue" target=_blank">https://en.wikipedia.org/wiki/Search_and_rescue</a></li>
+</ul>
