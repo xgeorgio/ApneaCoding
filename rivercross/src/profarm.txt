@@ -1,0 +1,192 @@
+/*******************************************************************
+
+PROFARM is a program in C-Prolog used to demonstrate solution
+searching through logic programming. It solves the classic
+river-crossing problem (farmer-wolf-goat,cabbage).
+
+
+
+DESCRIPTION
+
+At first, there are declarations about who can eat who, which is the
+main constrain in this problem, accepting that the boat used to cross
+the river can carry only two passengers, the farmer and one of his
+objects (wolf,goat,cabbage):
+
+
+| ?- eats(X,Y).
+
+X = wolf
+Y = goat ;
+
+X = goat
+Y = cabbage ;
+
+no
+
+
+
+There are also declarations about sides and directions:
+
+
+| ?-fromto(X,Y).
+
+X = left
+Y = right ;
+
+X = right
+Y = left ;
+
+no
+
+
+
+To keep the objects on each riverside, we use lists. A useful
+function in handling those lists is the memberof(C,L) clause:
+
+
+| ?- memberof(X,[goat,wolf]).
+
+X = goat ;
+
+X = wolf ;
+
+no
+
+
+
+Another useful clause for handling lists is the remove(C,L,NL)
+clause, which is used to remove an item from a list:
+
+
+| ?- remove(goat,[goat,farmer,wolf],NL).
+
+NL = [farmer,wolf] ;
+
+no
+
+
+
+The basic clause for creating a cross is the halfcross(C,LC,RC,St,CR)
+clause. It creates a list which represents the crossing, including
+objects moved and direction:
+
+
+| ?- halfcross(goat,[[goat,farmer],[]],FS,left,CR).
+
+FS = [[farmer],[goat]]
+CR = [right,[farmer,goat]] ;
+
+no
+
+
+
+To switch the sides between two objects, we use another clause
+for crossings, the fullcross(C,D,LC,LD,CR) clause. Note that
+no initial side is given, as we presume that all double crossings
+begin from the left (west) riverside:
+
+
+| ?- fullcross(goat,wolf,[[farmer,goat],[wolf]],FS,CR).
+
+FS = [[wolf,farmer],[goat]]
+CR = [[right,[farmer,goat]],[left,[farmer,wolf]]] ;
+
+no
+
+
+
+If we wish to transfer only one object from the right riverside
+to the left, we use the null2half(D,LC,LD,CR) clause:
+
+
+| ?- null2half(wolf,[[farmer],[wolf]],FS,CR).
+
+FS = [[wolf,farmer],[]]
+CR = [[right,[farmer]],[left,[farmer,wolf]]] ;
+
+no
+
+
+
+Respectively, to move one object from left to right we use the
+half2null(C,LC,LD,CR) clause:
+
+
+| ?- half2null(goat,[[goat,farmer],[]],FS,CR).
+
+FS = [[farmer],[goat]]
+CR = [[right,[farmer,goat]],[left,[farmer]]] ;
+
+no
+
+
+
+A riverside is called safe when none of the objects on this side
+may eat some other. Note that this is always true when the farmer
+is also on this side, or when there is only one or none objects
+present:
+
+
+| ?- safeside([wolf,goat,cabbage,farmer]).
+
+yes
+
+
+
+To switch the sides between two objects and also ensure that each
+side is safe, we use another clause, the safecross(C,D,LC,LD,CR)
+clause:
+
+
+| ?- safecross(goat,wolf,[[farmer,goat],[wolf]],FS,CR).
+
+FS = [[wolf,farmer],[goat]]
+CR = [[right,[farmer,goat]],[left,[farmer,wolf]]] ;
+
+no
+
+
+
+If we wish to transfer only one object from the right riverside
+to the left and ensure that each side is safe, we use the
+safecrossl(D,LC,LD,CR) clause:
+
+
+| ?- safecrossl(wolf,[[farmer],[wolf]],FS,CR).
+
+FS = [[wolf,farmer],[]]
+CR = [[right,[farmer]],[left,[farmer,wolf]]] ;
+
+no
+
+
+
+Respectively, to move one object from left to right and ensure each
+riverside's safety, we use the safecrossr(C,LC,LD,CR) clause:
+
+
+| ?- safecrossr(goat,[[goat,farmer],[]],FS,CR).
+
+FS = [[farmer],[goat]]
+CR = [[right,[farmer,goat]],[left,[farmer]]] ;
+
+no
+
+
+
+This is the more general clause used to calculate all possible sets
+of crossings, in order to transfer from one initial state (for both
+riversides) to a final state (also for both riversides). The clause
+uses an additional parameter (3rd) as an initial value for the set
+of crosses:
+
+
+| ?- crossings([[farmer,goat],[]],[[farmer],[goat]],[],CR).
+
+CR = [[[right,[farmer,goat]],[left,[farmer]]]] ;
+
+no
+
+
+
