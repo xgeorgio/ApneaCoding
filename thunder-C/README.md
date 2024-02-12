@@ -1,0 +1,6 @@
+Title:<br/>
+<b>Thunder triangulation in C</b>
+
+Description:<br/>
+<p>This is a simple code for estimating the 2-D location of where a thunder struck, based on light/sound time-of-arrival (TOA) detected by two sensing stations. Using appropriate IoT sensors, the two stations can be a pair of low-cost Arduino/RPi micro-controllers. The solution provided is the bearing and distance of the target location from each sensing station.</p>
+<p>Since there are only two TOA detections, in theory there is an ambiguation regarding the exact location between two possible solutions, but a 180-degree direction finder is adequate to resolve it. In practice, if the sensors of such a pair "look" towards the same general direction, e.g. North, they can provide a single exact solution within the W-N-E half-plane. One additional station can be used to verify the solution and provide exact location for any full-plane location. Using a chain or mesh of several such stations, with intermediate distances appropriate for their sensing capabilities, a large geographical area can be covered. The accuracy of this sensing network depends on the resolution of the timing devices and the accuracy of the measured inter-distances between stations.</p>
