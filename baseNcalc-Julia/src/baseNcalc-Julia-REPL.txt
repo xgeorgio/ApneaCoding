@@ -1,0 +1,128 @@
+julia> macro incrK_baseN(strval,incrK=1,baseN=10)
+       return :(string(parse(Int,$strval,base=$baseN)+$incrK,base=$baseN))
+       end
+
+julia> str="1010011111"; inc=17; bs=2;
+
+julia> using BenchmarkTools
+
+julia> @benchmark @incrK_baseN(str,inc,bs)
+BenchmarkTools.Trial: 10000 samples with 37 evaluations.
+ Range (min … max):  918.919 ns …  37.811 μs  ┊ GC (min … max): 0.00% … 93.60%
+ Time  (median):     932.432 ns               ┊ GC (median):    0.00%
+ Time  (mean ± σ):   975.091 ns ± 393.283 ns  ┊ GC (mean ± σ):  0.36% ±  0.94%
+
+  ▆█▆       ▆▇▄▁ ▂▃▁        ▁▃▁                                 ▂
+  ████▅▁▃▁▄▆████▆███▇▆▄▄▅▆▄▃███▆▄▄▄▃▆▅▁▃▃▄▁▅▆▆▆▅▄▅▅▅▅▅▅▅▆▆▄▄▃▁▄ █
+  919 ns        Histogram: log(frequency) by time       1.31 μs <
+
+ Memory estimate: 192 bytes, allocs estimate: 8.
+
+julia> @benchmark @incrK_baseN(str,inc,bs)
+BenchmarkTools.Trial: 10000 samples with 15 evaluations.
+ Range (min … max):  993.333 ns …  12.233 μs  ┊ GC (min … max): 0.00% … 0.00%
+ Time  (median):       1.027 μs               ┊ GC (median):    0.00%
+ Time  (mean ± σ):     1.064 μs ± 211.169 ns  ┊ GC (mean ± σ):  0.00% ± 0.00%
+
+  ▄▆█▆▁▂▄▄▄▄▃▂    ▁▁                                            ▂
+  ████████████▇▇▅███▇▇▄▁▁▄▄▄▅▄▁▃▁▁▁▄▃▄▁▄▃▁▁▃▁▃▁▃▁▁▁▃▄▄▅▅▄▅▆▅▅▄▃ █
+  993 ns        Histogram: log(frequency) by time       1.74 μs <
+
+ Memory estimate: 192 bytes, allocs estimate: 8.
+
+julia> @benchmark @incrK_baseN(str,inc,bs)
+BenchmarkTools.Trial: 10000 samples with 19 evaluations.
+ Range (min … max):  984.211 ns …   5.674 μs  ┊ GC (min … max): 0.00% … 0.00%
+ Time  (median):       1.084 μs               ┊ GC (median):    0.00%
+ Time  (mean ± σ):     1.102 μs ± 167.772 ns  ┊ GC (mean ± σ):  0.00% ± 0.00%
+
+  ▃     ▃█▅   ▁▁                                                ▁
+  █▇▃▃▁▇███▇▆▁██▇▄▁▃▁▁▁▃▁▁▁▃▁▃▃▁▃▁▄▄▅▄▅▄▃▃▄▄▃▅▆▄▆▄▇▄▃▃▄▁▁▃▁▅▁▁▃ █
+  984 ns        Histogram: log(frequency) by time       1.81 μs <
+
+ Memory estimate: 192 bytes, allocs estimate: 8.
+
+
+julia> function incrK_baseN(strval::String,incrK::Int=1,baseN::Int=10)
+       return(string(parse(Int,strval,base=baseN)+incrK,base=baseN))
+       end
+incrK_baseN (generic function with 3 methods)
+
+julia> @benchmark incrK_baseN(str,inc,bs)
+BenchmarkTools.Trial: 10000 samples with 875 evaluations.
+ Range (min … max):  134.629 ns …   3.011 μs  ┊ GC (min … max): 0.00% … 92.32%
+ Time  (median):     136.229 ns               ┊ GC (median):    0.00%
+ Time  (mean ± σ):   149.775 ns ± 101.538 ns  ┊ GC (mean ± σ):  2.70% ±  3.80%
+
+  █▇▅        ▄▅▃          ▃▄▃▄▅▆▃▂▂       ▂▂▂▃▂▁                ▂
+  ████▁▄▃▄▁▁▄████▇▅▆▇▇▆▅▅▆█████████▆▇▇▆█▇███████▆▆▆▆▆▆▆▅▅▆▅▆▄▅▆ █
+  135 ns        Histogram: log(frequency) by time        185 ns <
+
+ Memory estimate: 96 bytes, allocs estimate: 2.
+
+julia> @benchmark incrK_baseN(str,inc,bs)
+BenchmarkTools.Trial: 10000 samples with 873 evaluations.
+ Range (min … max):  134.479 ns …   2.607 μs  ┊ GC (min … max): 0.00% … 92.02%
+ Time  (median):     136.655 ns               ┊ GC (median):    0.00%
+ Time  (mean ± σ):   148.763 ns ± 102.874 ns  ┊ GC (mean ± σ):  2.85% ±  3.91%
+
+  ▄█▆▃▁       ▅▂         ▆▄▂▄▃▁▂▁                               ▁
+  █████▅▅▆▄▃▃█████▆▆▅▅▄▅▇█████████▆▄▅▇█▇▆▇▇▄▅▅▄▄▅▄▄▄▄▅▅▄▅▅▄▅▅▄▄ █
+  134 ns        Histogram: log(frequency) by time        186 ns <
+
+ Memory estimate: 96 bytes, allocs estimate: 2.
+
+
+
+julia> @benchmark @incrK_baseN(str,inc,bs)
+BenchmarkTools.Trial: 10000 samples with 36 evaluations.
+ Range (min … max):  916.667 ns …  64.025 μs  ┊ GC (min … max): 0.00% … 95.92%
+ Time  (median):     927.778 ns               ┊ GC (median):    0.00%
+ Time  (mean ± σ):   962.102 ns ± 637.234 ns  ┊ GC (mean ± σ):  0.64% ±  0.96%
+
+  ▃██▄▁        ▂▄▂    ▂▂           ▃▅▂                          ▂
+  █████▆▄▄▃▁▁▁▁███▇▅▁▆██▄▁▄▁▁▁▁▁▁▁▄███▆▅▅▃▃▃▁▃▃▁▁▁▃▁▄▃▅▅▅▆▆▆▃▄▅ █
+  917 ns        Histogram: log(frequency) by time       1.23 μs <
+
+ Memory estimate: 192 bytes, allocs estimate: 8.
+
+julia> @benchmark @incrK_baseN(str,inc,bs)
+BenchmarkTools.Trial: 10000 samples with 31 evaluations.
+ Range (min … max):  929.032 ns …  74.494 μs  ┊ GC (min … max): 0.00% … 96.45%
+ Time  (median):       1.032 μs               ┊ GC (median):    0.00%
+ Time  (mean ± σ):     1.036 μs ± 749.761 ns  ┊ GC (mean ± σ):  0.69% ±  0.96%
+
+           █
+  ▆▃▂▂▁▁▂▂▃█▃▂▂▂▂▂▂▂▁▂▁▂▂▂▂▂▂▁▂▂▂▂▂▁▂▂▂▂▂▂▂▂▂▂▂▁▂▂▁▁▁▂▂▂▂▂▁▂▂▂▂ ▂
+  929 ns           Histogram: frequency by time          1.6 μs <
+
+ Memory estimate: 192 bytes, allocs estimate: 8.
+
+
+
+
+julia> @benchmark @incrK_baseN(str,inc,bs)
+BenchmarkTools.Trial: 10000 samples with 36 evaluations.
+ Range (min … max):  919.444 ns …  65.208 μs  ┊ GC (min … max): 0.00% … 95.86%
+ Time  (median):     988.889 ns               ┊ GC (median):    0.00%
+ Time  (mean ± σ):   999.589 ns ± 656.604 ns  ┊ GC (mean ± σ):  0.63% ±  0.96%
+
+  █   ▁
+  █▃▂▂█▄▄▃▂▂▂▅▂▂▂▁▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▁▂▁▂▂▂▁▂▂▂▂▂▁▁▂▂▂▁▂▂▂▂▂▂▂▁▂▂▂▂ ▂
+  919 ns           Histogram: frequency by time         1.86 μs <
+
+ Memory estimate: 192 bytes, allocs estimate: 8.
+
+julia> @benchmark incrK_baseN(str,inc,bs)
+BenchmarkTools.Trial: 10000 samples with 873 evaluations.
+ Range (min … max):  134.479 ns …   2.949 μs  ┊ GC (min … max): 0.00% … 88.40%
+ Time  (median):     147.652 ns               ┊ GC (median):    0.00%
+ Time  (mean ± σ):   154.533 ns ± 105.316 ns  ┊ GC (mean ± σ):  2.78% ±  3.90%
+
+   ▃█              ▃▆
+  ▄██▄▁▂▂▃▄▄▃▂▂▂▂▂▅██▃▂▂▂▂▂▃▃▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▁▂▂▂▂▂▂▂▂▂▂▂ ▃
+  134 ns           Histogram: frequency by time          216 ns <
+
+ Memory estimate: 96 bytes, allocs estimate: 2.
+
+julia>

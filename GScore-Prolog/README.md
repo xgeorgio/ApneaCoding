@@ -1,0 +1,8 @@
+Title:<br/>
+<b>Geneva Score assessment in Prolog</b>
+
+Description:<br/>
+<p>This program is demonstrates how classic declarative programming can implement step-by-step multi-factor assessment protocols that are designed as a set of if-then rules. This kind of "diagnostics" is very common in fault detection in machinery or in first aid assessments, like in this example. The most common version of the Geneva Score is implemented here, providing a simple way to set the clinical findings/signs as input and then get the score and probability of possible pulmonary embolish (PE), which is also a common emergency situation with appropriate treatment protocols.</p>
+<p>Prolog's main advantage over other declarative programming languages is that even in the early '80s came with a rich library of common functionalities that made real-world application development easy. Turbo Prolog was probably the best option for PC machines, with efficient memory enhancements via more strict typing and other syntax shortcuts to limit the tree search in manageable space/time requirements for these platforms. Although now depricated by constrained and fuzzy logic paradigms, Prolog-style programming is still the most intuitive way to design simple expert systems and knowledge management platforms.</p>
+<p>DISCLAIMER: This code is designed and implemented only for educational purposes. It should not be used for any kind of real medical / clinical assessment procedure whatsoever. The author claims no responsibility for such use or any harm that may result if used in such way. Real doctors and paramedics, not Prolog, should deal with real medical emergencies. Details: https://en.wikipedia.org/wiki/Geneva_score</p>
+
