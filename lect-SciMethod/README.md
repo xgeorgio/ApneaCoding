@@ -6,4 +6,4 @@
 <p>Προαπαιτούμενα: Κανένα</p>
 <p>Keywords: Science, Scientific Method, Informatics, Machine Learning, Data Analytics, AI, Artificial Intelligence, lecture</p>
 <p>DOI: https://doi.org/10.5281/zenodo.10913451</p>
-<p>Video: https://youtu.be/...</p>
+<p>Video: https://youtu.be/NyU2wrTapDM</p>
