@@ -6,4 +6,3 @@
 <p>Προαπαιτούμενα: Κανένα</p>
 <p>Keywords: Science, Scientific Method, Scientific Writing, Peer Review, Informatics, Machine Learning, Data Analytics, AI, Artificial Intelligence, lecture</p>
 <p>DOI: https://zenodo.org/doi/10.5281/zenodo.10995555</p>
-<p>Video: https://youtu.be/...</p>
