@@ -5,4 +5,5 @@
 <p>Επίπεδο γνώσεων (από): Οποιοδήποτε.</p>
 <p>Προαπαιτούμενα: Γνώσεις προγραμματισμού.</p>
 <p>Keywords: Software Engineering, Project Management, Software Developer, Project Manager, Agile, Scrum, Waterfall, debugging, testing, Software Quality, SQA, Quality Control, Quality Assurance, estimation, Lines Of Code, LOC, KLOC, SPM, programming, lecture</p>
+<p>DOI: https://zenodo.org/doi/10.5281/zenodo.11101414</p>
 <p>Video: https://youtu.be/TgXFKahW158</p>

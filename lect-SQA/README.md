@@ -5,4 +5,5 @@
 <p>Επίπεδο γνώσεων (από): Οποιοδήποτε.</p>
 <p>Προαπαιτούμενα: Βασικές γνώσεις προγραμματισμού.</p>
 <p>Keywords: Safety, Safety Critical, Space, Space Software, Software Engineering, Project Management, Software Developer, Software Quality, SQA, Quality Control, Quality Assurance, Quality Management Systems, QMS, Project Manager, testing, estimation, Lines Of Code, LOC, KLOC, SPM, programming, lecture</p>
+<p>DOI: https://zenodo.org/doi/10.5281/zenodo.11101454</p>
 <p>Video: https://youtu.be/fS8Pk2zLXvU</p>

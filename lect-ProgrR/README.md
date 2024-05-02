@@ -5,4 +5,5 @@
 <p>Επίπεδο γνώσεων (από): Οποιοδήποτε.</p>
 <p>Προαπαιτούμενα: Βασικές γνώσεις Μαθηματικών και Στατιστικής.</p>
 <p>Keywords: Machine Learning, Data Analytics, AI, Artificial Intelligence, R, programming, lecture</p>
+<p>DOI: https://zenodo.org/doi/10.5281/zenodo.11101372</p>
 <p>Video: https://youtu.be/7aaNnXxyzgI</p>
