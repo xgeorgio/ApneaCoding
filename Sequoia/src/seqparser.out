@@ -1,0 +1,216 @@
+Grammar:
+
+Rule 0     S' -> statement
+Rule 1     statement -> expr
+Rule 2     statement -> IDENT ASSIGN expr
+Rule 3     statement -> RETURN IDENT
+Rule 4     statement -> CONNECT IDENT
+Rule 5     statement -> USE IDENT
+Rule 6     statement -> LIST
+Rule 7     statement -> CLEAR
+Rule 8     statement -> RESET
+Rule 9     statement -> QUIT
+Rule 10    expr -> IDENT
+Rule 11    expr -> INT
+Rule 12    expr -> FLOAT
+Rule 13    expr -> LPAREN expr RPAREN
+
+Terminals, with rules where they appear:
+
+ASSIGN               : 2
+CLEAR                : 7
+CONNECT              : 4
+FLOAT                : 12
+IDENT                : 2 3 4 5 10
+INT                  : 11
+LIST                 : 6
+LPAREN               : 13
+QUIT                 : 9
+RESET                : 8
+RETURN               : 3
+RPAREN               : 13
+USE                  : 5
+error                : 
+
+Nonterminals, with rules where they appear:
+
+expr                 : 1 2 13
+statement            : 0
+
+
+state 0
+
+    (0) S' -> . statement
+    (1) statement -> . expr
+    (2) statement -> . IDENT ASSIGN expr
+    (3) statement -> . RETURN IDENT
+    (4) statement -> . CONNECT IDENT
+    (5) statement -> . USE IDENT
+    (6) statement -> . LIST
+    (7) statement -> . CLEAR
+    (8) statement -> . RESET
+    (9) statement -> . QUIT
+    (10) expr -> . IDENT
+    (11) expr -> . INT
+    (12) expr -> . FLOAT
+    (13) expr -> . LPAREN expr RPAREN
+    IDENT           shift and go to state 3
+    RETURN          shift and go to state 4
+    CONNECT         shift and go to state 5
+    USE             shift and go to state 6
+    LIST            shift and go to state 7
+    CLEAR           shift and go to state 8
+    RESET           shift and go to state 9
+    QUIT            shift and go to state 10
+    INT             shift and go to state 11
+    FLOAT           shift and go to state 12
+    LPAREN          shift and go to state 13
+
+    statement                      shift and go to state 1
+    expr                           shift and go to state 2
+
+state 1
+
+    (0) S' -> statement .
+
+
+state 2
+
+    (1) statement -> expr .
+    $end            reduce using rule 1 (statement -> expr .)
+
+
+state 3
+
+    (2) statement -> IDENT . ASSIGN expr
+    (10) expr -> IDENT .
+    ASSIGN          shift and go to state 14
+    $end            reduce using rule 10 (expr -> IDENT .)
+
+
+state 4
+
+    (3) statement -> RETURN . IDENT
+    IDENT           shift and go to state 15
+
+
+state 5
+
+    (4) statement -> CONNECT . IDENT
+    IDENT           shift and go to state 16
+
+
+state 6
+
+    (5) statement -> USE . IDENT
+    IDENT           shift and go to state 17
+
+
+state 7
+
+    (6) statement -> LIST .
+    $end            reduce using rule 6 (statement -> LIST .)
+
+
+state 8
+
+    (7) statement -> CLEAR .
+    $end            reduce using rule 7 (statement -> CLEAR .)
+
+
+state 9
+
+    (8) statement -> RESET .
+    $end            reduce using rule 8 (statement -> RESET .)
+
+
+state 10
+
+    (9) statement -> QUIT .
+    $end            reduce using rule 9 (statement -> QUIT .)
+
+
+state 11
+
+    (11) expr -> INT .
+    $end            reduce using rule 11 (expr -> INT .)
+    RPAREN          reduce using rule 11 (expr -> INT .)
+
+
+state 12
+
+    (12) expr -> FLOAT .
+    $end            reduce using rule 12 (expr -> FLOAT .)
+    RPAREN          reduce using rule 12 (expr -> FLOAT .)
+
+
+state 13
+
+    (13) expr -> LPAREN . expr RPAREN
+    (10) expr -> . IDENT
+    (11) expr -> . INT
+    (12) expr -> . FLOAT
+    (13) expr -> . LPAREN expr RPAREN
+    IDENT           shift and go to state 19
+    INT             shift and go to state 11
+    FLOAT           shift and go to state 12
+    LPAREN          shift and go to state 13
+
+    expr                           shift and go to state 18
+
+state 14
+
+    (2) statement -> IDENT ASSIGN . expr
+    (10) expr -> . IDENT
+    (11) expr -> . INT
+    (12) expr -> . FLOAT
+    (13) expr -> . LPAREN expr RPAREN
+    IDENT           shift and go to state 19
+    INT             shift and go to state 11
+    FLOAT           shift and go to state 12
+    LPAREN          shift and go to state 13
+
+    expr                           shift and go to state 20
+
+state 15
+
+    (3) statement -> RETURN IDENT .
+    $end            reduce using rule 3 (statement -> RETURN IDENT .)
+
+
+state 16
+
+    (4) statement -> CONNECT IDENT .
+    $end            reduce using rule 4 (statement -> CONNECT IDENT .)
+
+
+state 17
+
+    (5) statement -> USE IDENT .
+    $end            reduce using rule 5 (statement -> USE IDENT .)
+
+
+state 18
+
+    (13) expr -> LPAREN expr . RPAREN
+    RPAREN          shift and go to state 21
+
+
+state 19
+
+    (10) expr -> IDENT .
+    RPAREN          reduce using rule 10 (expr -> IDENT .)
+    $end            reduce using rule 10 (expr -> IDENT .)
+
+
+state 20
+
+    (2) statement -> IDENT ASSIGN expr .
+    $end            reduce using rule 2 (statement -> IDENT ASSIGN expr .)
+
+
+state 21
+
+    (13) expr -> LPAREN expr RPAREN .
+    $end            reduce using rule 13 (expr -> LPAREN expr RPAREN .)
+    RPAREN          reduce using rule 13 (expr -> LPAREN expr RPAREN .)
